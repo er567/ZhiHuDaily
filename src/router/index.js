@@ -16,7 +16,11 @@ const router = new Router({
 	path: '/index',
 	component: resolve => require(['@/components/conf/index/index.vue'], resolve),
 	hidden: true
-}]
+    },{
+        path: '/detail',  
+        name: 'detail',
+        component: resolve => require(['@/components/conf/index/article-detail.vue'], resolve)
+    }]
 })
 
 export
