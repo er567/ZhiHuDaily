@@ -1,7 +1,6 @@
 /**
  * @file ajax.js
  * @synopsis  ajax
- * @author licuiting, 250602615@qq.com
  * @version 1.0.0
  * @date 2017-07-23
  */

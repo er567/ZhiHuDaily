@@ -19,7 +19,7 @@ const router = new Router({
     },{
         path: '/detail',  
         name: 'detail',
-        component: resolve => require(['@/components/conf/index/article-detail.vue'], resolve)
+        component: resolve => require(['@/components/conf/article-detail/article-detail.vue'], resolve)
     }]
 })
 

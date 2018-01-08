@@ -1,5 +1,5 @@
 <template>
-	<div class="mod-demo" id="jDemo">
+	<div class="mod-index" id="jDemo">
 		 <mt-header title="知乎日报" class="ui-header">
 			<!-- <router-link to="/" slot="left">
 				<mt-button icon="back">返回</mt-button>
@@ -48,12 +48,19 @@ export default {
 </script>
 
 <style lang="scss">
+.mod-index{
+  padding-top: 50px;
+}
 .ui-header {
-  height: 100px;
-  font-size: 30px;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 .mint-swipe {
-  height: 460px;
+  height: 230px;
   .ui-swiper {
     width: 100%;
     height: 100%;
@@ -68,7 +75,7 @@ export default {
       left: 0;
       padding: 10px;
       font-weight: 300;
-      font-size: 40px;
+      font-size: 20px;
       color: #fff;
     }
   }
@@ -76,33 +83,5 @@ export default {
     width: 8px;
     height: 8px;
   }
-}
-.mod-list{
-	padding: 20px 20px;
-	background: #f2f2f2;
-	line-height: 1;
-	.list-item{
-		min-height: 160px;
-		display: -webkit-box;
-    	display: -webkit-flex;
-    	display: flex;
-		margin: 20px auto;
-		padding: 20px;
-		background: #fff;
-		.item-title{
-			font-size: 32px;
-    		line-height: 1.2;
-			margin-right: 20px;
-			-webkit-box-flex: 1; 
-			-webkit-flex: 1; 
-			flex: 1; 
-		}
-		.item-imgbox{
-			img{
-				width: 180px;
-				height: 160px;
-			}
-		}
-	}
 }
 </style>

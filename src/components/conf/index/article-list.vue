@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     getDetails () {
-      let articleId = '9664295';
+      let articleId = '9664474';
       this.$router.push({name:'detail',params:{ articleId: articleId }});
     },
     getImage(url) {
@@ -51,29 +51,29 @@ export default {
 
 <style scoped lang="scss">
   .mod-list{
-	padding: 20px 20px;
+	padding: 10px 10px;
 	background: #f2f2f2;
 	line-height: 1;
 	.list-item{
-		min-height: 160px;
+		min-height: 40px;
 		display: -webkit-box;
     	display: -webkit-flex;
     	display: flex;
-		margin: 20px auto;
-		padding: 20px;
+		margin: 10px auto;
+		padding: 10px;
 		background: #fff;
 		.item-title{
-			font-size: 32px;
+			font-size: 16px;
     		line-height: 1.2;
-			margin-right: 20px;
+			margin-right: 10px;
 			-webkit-box-flex: 1; 
 			-webkit-flex: 1; 
 			flex: 1; 
 		}
 		.item-imgbox{
 			img{
-				width: 180px;
-				height: 160px;
+				width: 90px;
+				height: 80px;
 			}
 		}
 	}
