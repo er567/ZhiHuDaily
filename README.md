@@ -3,7 +3,7 @@ webpack for single file components
 Author: licuiting
 ## git address
 ``` js
-git@10.200.51.105:f2e/vue-pc-template.git
+git@github.com:er567/ZhiHuDaily.git
 ```
 
 ## Contents 
