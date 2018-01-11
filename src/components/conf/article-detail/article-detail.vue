@@ -26,7 +26,12 @@ export default {
   components: {},
   mounted() {
     let self = this;
-    self.id = this.$route.params.articleId;
+    if(self.$route.params.articleId){
+      self.id = self.$route.params.articleId;
+      window.sessionStorage.detailId = self.id;
+    }else{//刷新时取session
+      self.id = window.sessionStorage.detailId;
+    }
     self.url = this.$apiUrl.articleUrl + self.id;
     console.log(self.id);
     this.$ajax.get(self.url).then(res => {
@@ -50,6 +55,14 @@ export default {
 </script>
 
 <style lang="scss">
+.ui-header {
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
 .detail-content {
   padding-top: 50px;
 }

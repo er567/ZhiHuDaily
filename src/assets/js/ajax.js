@@ -9,7 +9,7 @@ import Vue from 'vue'
 import Promise from 'promise'
 import axios from 'axios'
 import jsonp from 'jsonp';
-var isPro = (process.env.NODE_ENV === 'production');
+// var isPro = (process.env.NODE_ENV === 'production');
 var ajax = function(type, url, data) {
     !isPro && sessionStorage.setItem(url, JSON.stringify(data));
     return axios[type](url, data).then((res) => {

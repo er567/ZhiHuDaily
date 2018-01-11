@@ -1,8 +1,8 @@
 <template>
-  <div>
-			<ul class="mod-list" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10">
-				<h2>今日新闻</h2>
-  				<li class="list-item" @click="getDetails" v-for="(item,index) in list" :key="index">
+  <div class="list-box">
+			<ul class="mod-list" v-for="(listItem,index) in list" :key="index">
+				<h2>{{dateList[index]}}</h2>
+  				<li class="list-item" @click="getDetails(item.id)" v-for="(item,index) in listItem" :key="index">
             <div class="item-title">{{item.title}}</div>
             <div class="item-imgbox">
               <img :src="getImage(item.images[0])" alt="">
@@ -14,38 +14,28 @@
 
 <script>
 import Vue from "vue";
+// import formatDate from './assets/js/data.js'
 // var bus = new Vue();
 export default {
   data() {
     return {
-      articleId:0
+      
     };
   },
-  props:['list'],
+  props:['list','dateList'],
   components: {},
   mounted() {
     
   },
   methods: {
-    getDetails () {
-      let articleId = '9664474';
-      this.$router.push({name:'detail',params:{ articleId: articleId }});
+    getDetails (id) {
+      this.$router.push({name:'detail',params:{ articleId: id }});
     },
     getImage(url) {
       if (url !== undefined) {
         return url.replace(/http\w{0,1}:\/\/p/g,"https://images.weserv.nl/?url=p")}
-		},
-		loadMore() {
-      this.loading = true;
-    //   setTimeout(() => {
-    //     let last = this.list[this.list.length - 1];
-    //     for (let i = 1; i <= 7; i++) {
-    //       this.list.push(last + i);
-    //     }
-    //     this.loading = false;
-    //   }, 2500);
-    }
-  }
+		}
+	}
 };
 </script>
 
