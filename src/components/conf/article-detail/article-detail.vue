@@ -6,7 +6,14 @@
 			</router-link>
 			<mt-button icon="more" slot="right"></mt-button>
 		</mt-header>
-    <div class="detail-content" v-html="content"></div>
+    <div class="detail-main-box">
+      <div class="detail-img-box margin-top" :style="{'backgroundImage':'url(\''+headImg+'\')'}">
+        <div class="detail-mask"></div>
+        <h1 class="detail-title">{{title}}</h1>
+        <p class="detail-image-source">{{imgsource}}</p>
+      </div>
+      <div class="detail-content" v-html="content"></div>
+    </div>
   </div>
 </template>
 
@@ -19,7 +26,10 @@ export default {
       id: 0,
       url: "",
       mobileCss: "",
-      content: ""
+      content: "",
+      headImg: "",
+      imgsource: "",
+      title: ""
     };
   },
   props: [],
@@ -38,6 +48,10 @@ export default {
       //处理一下里面的图片链接 res.CONTENTS.body
       console.log(res.CONTENTS.css);
       self.content = self.getImage(res.CONTENTS.body);
+      self.headImg = self.getImage(res.CONTENTS.image);
+      self.title = res.CONTENTS.title;
+      self.imgsource = res.CONTENTS.image_source;
+      console.log(self.headImg)
     });
   },
   methods: {
@@ -55,6 +69,38 @@ export default {
 </script>
 
 <style lang="scss">
+.detail-main-box{
+  padding-top: 50px;
+}
+.detail-img-box{
+  position: relative;
+  z-index: 0;
+  height: 200px;
+  width: 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100%;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  .detail-title{
+    position: absolute;
+    bottom: 21px;
+    line-height: 1.2;
+    left: 0;
+    padding: 18px;
+    font-weight: 300;
+    font-size: 21px;
+    color: #fff;
+  }
+  .detail-image-source{
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    padding: 0 18px;
+    font-weight: 300;
+    font-size: 12px;
+    color: #d3d3d3;
+  }
+}
 .ui-header {
   width: 100%;
   height: 50px;
@@ -62,9 +108,6 @@ export default {
   position: fixed;
   top: 0;
   z-index: 10;
-}
-.detail-content {
-  padding-top: 50px;
 }
 .detail-content {
   article,
@@ -283,6 +326,7 @@ export default {
     margin: 10px 0 20px;
   }
   .content img {
+    width: 100%;
     max-width: 100%;
     display: block;
     margin: 30px auto;

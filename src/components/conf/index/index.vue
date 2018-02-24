@@ -1,10 +1,7 @@
 <template>
 	<div class="mod-index" id="jDemo">
 		 <mt-header title="知乎日报" class="ui-header">
-			<!-- <router-link to="/" slot="left">
-				<mt-button icon="back">返回</mt-button>
-			</router-link>
-			<mt-button icon="more" slot="right"></mt-button> -->
+      <mt-button icon="more" slot="left"></mt-button>
 		</mt-header>
 		<mt-swipe :auto="3000" :speed="250">
 			<mt-swipe-item v-for="(item,index) in topStories" :key="index" >
