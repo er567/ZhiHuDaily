@@ -1,7 +1,7 @@
 <template>
-	<div class="mod-index" id="jDemo">
+	<div class="mod-index" id="">
 		 <mt-header title="" class="ui-header">
-      <i class="iconfontcom" slot="left" @click="showBar()">&#xe639;</i>
+      <i class="list-icon iconfontcom" slot="left" @click="showBar()">&#xe639;</i>
       <span class="sy-txt" slot="left">首页</span>
       <i class="iconfontcom" slot="right">&#xe695;</i>
       <i class="iconfontcom head-more" slot="right" @click="nightMod()">&#xe633;</i>
@@ -12,6 +12,7 @@
 				<div class="ui-swiper" @click="getDetails(item.id)" :style="{ backgroundImage: 'url(' + getImage(item.image) + ')' }">
 					<h1 class="slider-title">{{item.title}}</h1>
 				</div>
+        <div class="swiper-mask"></div>
 			</mt-swipe-item>
 		</mt-swipe>
 		<articleList :list="list" :dateList="dateList" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10"></articleList>	
@@ -120,22 +121,25 @@ export default {
 </script>
 
 <style lang="scss">
-.sy-txt {
-  margin-left: 20px;
-}
-.head-more {
-  margin-left: 20px;
-}
 .mod-index {
   padding-top: 50px;
 }
 .ui-header {
   width: 100%;
-  height: 50px;
+  height: 54px;
   font-size: 16px;
   position: fixed;
   top: 0;
   z-index: 10;
+  .list-icon {
+    margin-left: 10px;
+  }
+  .sy-txt {
+    margin-left: 30px;
+  }
+  .head-more {
+    margin-left: 20px;
+  }
 }
 .mint-swipe {
   height: 230px;
@@ -155,7 +159,27 @@ export default {
       font-weight: 300;
       font-size: 21px;
       color: #ffffff;
+      z-index: 12;
     }
+  }
+  .swiper-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(0, 0, 0, 0.1)
+    );
+    background-image: -webkit-linear-gradient(
+      bottom,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(0, 0, 0, 0.1)
+    );
   }
   .mint-swipe-indicator {
     width: 8px;

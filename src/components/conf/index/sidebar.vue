@@ -1,23 +1,27 @@
 <template>
   <div class="sidebar-box" :class="{'show-sidebar': showSidebar}">
-      <div class="sidebar-header">
-          <div class="user">
-              <img src="../../../assets/images/conf/avatar.jpg" alt="">
-              <p>er567</p>
-          </div>
-          <div class="operation">
-              <div class="operation-item">
-                  <i class="iconfontcom">&#xe676;</i>
-                  <p>我的收藏</p>
-              </div>
-              <div class="operation-item">
-                  <i class="iconfontcom">&#xe7bb;</i>
-                  <p>离线下载</p>
-              </div>
-          </div>
-      </div>
+      <router-link :to="{name: 'author',params: { userId: 'er567' }}">
+            <div class="sidebar-header">
+                <div class="user">
+                    <img src="../../../assets/images/conf/avatar.jpg" alt="">
+                    <p>er567</p>
+                </div>
+                <div class="operation">
+                    <div class="operation-item">
+                        <i class="iconfontcom">&#xe676;</i>
+                        <p>我的收藏</p>
+                    </div>
+                    <div class="operation-item">
+                        <i class="iconfontcom">&#xe7bb;</i>
+                        <p>离线下载</p>
+                    </div>
+                </div>
+            </div>
+      </router-link>
       <div class="sidebar-list">
-          <p class="home" @click="hiddenBarChild()"><i class="iconfontcom">&#xe630;</i>首页</p>
+          <router-link :to="{name: 'index'}">
+                <p class="home" @click="hiddenBarChild()"><i class="iconfontcom">&#xe630;</i>首页</p>
+          </router-link>
           <ul>
             <li class="list-item" v-for="(item,index) in themeObj" :key="index">
                 <p>{{item.name}}</p>
@@ -47,11 +51,11 @@ export default {
   },
   methods: {
     hiddenBarChild() {
-        if(this.sidebarShow){
-            this.sidebarShow = !this.sidebarShow;
-        }
-        console.log(this.sidebarShow)
-        this.$emit('update:showSidebar', this.sidebarShow)
+      if (this.sidebarShow) {
+        this.sidebarShow = !this.sidebarShow;
+      }
+      console.log(this.sidebarShow);
+      this.$emit("update:showSidebar", this.sidebarShow);
     }
   }
 };
@@ -128,17 +132,17 @@ export default {
         font-size: 18px;
       }
     }
-    .list-item{
+    .list-item {
       height: 48px;
       line-height: 48px;
       font-size: 15px;
       padding-left: 15px;
       display: flex;
       flex-direction: row;
-      >p{
-          flex: 1;
+      > p {
+        flex: 1;
       }
-      >div{
+      > div {
         padding-right: 40px;
         font-size: 25px;
         font-weight: 200;
@@ -148,14 +152,17 @@ export default {
   }
 }
 #jApp.night-style {
-      .sidebar-header{
+  .sidebar-header {
     background: #222;
+    p {
+      color: #b7b7b7;
+    }
   }
-  .sidebar-list{
+  .sidebar-list {
     background: #343434;
   }
-  ul{
-      color: #b7b7b7;
+  ul {
+    color: #b7b7b7;
   }
 }
 </style>
