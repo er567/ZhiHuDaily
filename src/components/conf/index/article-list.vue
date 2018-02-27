@@ -1,7 +1,7 @@
 <template>
   <div class="list-box">
 			<ul class="mod-list" v-for="(listItem,index) in list" :key="index">
-				<h2>{{dateList[index]}}</h2>
+				<h2 class="title">{{dateList[index]}}</h2>
   				<li class="list-item" @click="getDetails(item.id)" v-for="(item,index) in listItem" :key="index">
             <div class="item-title">{{item.title}}</div>
             <div class="item-imgbox">
@@ -52,6 +52,8 @@ export default {
 		margin: 10px auto;
 		padding: 10px;
 		background: #fff;
+		border: 1px solid #eaeaea;
+    border-bottom: 1px solid #d0d0d0;
 		.item-title{
 			font-size: 16px;
     		line-height: 1.2;

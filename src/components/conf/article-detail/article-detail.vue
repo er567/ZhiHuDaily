@@ -36,10 +36,11 @@ export default {
   components: {},
   mounted() {
     let self = this;
-    if(self.$route.params.articleId){
+    if (self.$route.params.articleId) {
       self.id = self.$route.params.articleId;
       window.sessionStorage.detailId = self.id;
-    }else{//刷新时取session
+    } else {
+      //刷新时取session
       self.id = window.sessionStorage.detailId;
     }
     self.url = this.$apiUrl.articleUrl + self.id;
@@ -51,7 +52,7 @@ export default {
       self.headImg = self.getImage(res.CONTENTS.image);
       self.title = res.CONTENTS.title;
       self.imgsource = res.CONTENTS.image_source;
-      console.log(self.headImg)
+      console.log(self.headImg);
     });
   },
   methods: {
@@ -69,10 +70,10 @@ export default {
 </script>
 
 <style lang="scss">
-.detail-main-box{
+.detail-main-box {
   padding-top: 50px;
 }
-.detail-img-box{
+.detail-img-box {
   position: relative;
   z-index: 0;
   height: 200px;
@@ -81,17 +82,17 @@ export default {
   background-size: 100%;
   background-position: 50%;
   background-repeat: no-repeat;
-  .detail-title{
+  .detail-title {
     position: absolute;
-    bottom: 21px;
+    bottom: 0px;
     line-height: 1.2;
     left: 0;
-    padding: 18px;
+    padding: 0 18px;
     font-weight: 300;
     font-size: 21px;
     color: #fff;
   }
-  .detail-image-source{
+  .detail-image-source {
     position: absolute;
     bottom: 10px;
     right: 0;
@@ -1036,6 +1037,24 @@ export default {
   }
   .dudu-night .origin-source.with-link:after {
     border-color: transparent transparent transparent #797b80;
+  }
+}
+#jApp.night-style {
+  .content-inner {
+    background: #343434;
+    .question+.question{
+      border-top: 5px solid #222;
+    }
+  }
+  .content-wrap {
+    .author,
+    content {
+      color: #888;
+    }
+    .view-more a {
+      background: #303030;
+      color: #6991c2;
+    }
   }
 }
 </style>
