@@ -1,5 +1,5 @@
 const state = {
-    author: 'f2e'
+    author: 'er_567'
 }
 
 // getters
@@ -9,7 +9,11 @@ const getters = {}
 const actions = {}
 
 // mutations
-const mutations = {}
+const mutations = {
+    editAuthor(state,name){
+        state.author = name;
+    }
+}
 
 export default {
     state,

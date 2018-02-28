@@ -4,7 +4,7 @@
             <div class="sidebar-header">
                 <div class="user">
                     <img src="../../../assets/images/conf/avatar.jpg" alt="">
-                    <p>er567</p>
+                    <p>{{author}}</p>
                 </div>
                 <div class="operation">
                     <div class="operation-item">
@@ -34,10 +34,12 @@
 
 <script>
 import Vue from "vue";
+import { demo } from "vuex";
 export default {
   props: ["showSidebar"],
   data() {
     return {
+      author: "",
       sidebarShow: this.showSidebar,
       themeObj: ""
     };
@@ -45,6 +47,7 @@ export default {
   mounted: function() {
     // this.$nextTick(function() {});
     let self = this;
+    this.author = this.$store.state.demo.author;
     this.$ajax.get(this.$apiUrl.themesUrl).then(res => {
       self.themeObj = res.THEMES.others;
     });
@@ -56,6 +59,16 @@ export default {
       }
       console.log(this.sidebarShow);
       this.$emit("update:showSidebar", this.sidebarShow);
+    }
+  },
+  computed: {
+    getUser() {
+      return this.$store.state.demo.author;
+    }
+  },
+  watch: {
+    getUser(val) {
+      this.author = val;
     }
   }
 };

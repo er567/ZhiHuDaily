@@ -12,7 +12,7 @@
                 <img src="../../../assets/images/conf/avatar.jpg" alt="">
             </div>
             <div class="user-name">
-                <input type="text" value="er_567" readonly="readonly" v-focus="focusState" ref="name" :class="{foucs:focusState}">
+                <input type="text" v-model.trim="author" readonly="readonly" v-focus="focusState" ref="name" :class="{foucs:focusState}">
             </div>
             <div class="address-list">
                 <a href="https://github.com/er567/ZhiHuDaily">github地址</a>
@@ -28,11 +28,13 @@
 
 <script>
 import Vue from "vue";
+import { demo } from 'vuex'
 import sidebar from "../index/sidebar.vue";
 // var bus = new Vue();
 export default {
   data() {
     return {
+      author: '',
       showSidebar: false,
       edit: false,
       focusState: false
@@ -40,7 +42,9 @@ export default {
   },
   props: [""],
   components: { sidebar },
-  mounted() {},
+  mounted() {
+    this.author = this.$store.state.demo.author;
+  },
   methods: {
     showBar() {
       this.showSidebar = !this.showSidebar;
@@ -57,6 +61,7 @@ export default {
             this.$refs.name.removeAttribute('readonly');
         }else{
             this.$refs.name.setAttribute('readonly','readonly');
+            this.$store.commit('editAuthor', this.author);
         }
     }
   },
