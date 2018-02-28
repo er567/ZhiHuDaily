@@ -25,7 +25,7 @@ export default {
   props:['list','dateList','source'],
   components: {},
   mounted() {
-    
+    window.document.body.className = "";
   },
   methods: {
     getDetails (id) {

@@ -78,21 +78,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.ui-header {
-  width: 100%;
-  height: 54px;
-  font-size: 16px;
-  .list-icon {
-    margin-left: 10px;
-  }
-  .sy-txt {
-    margin-left: 32px;
-  }
-  .edit-icon {
-     font-size: 20px; 
-     margin-right: 6px;
-  }
-}
 .avatar {
   margin: 30px auto;
   text-align: center;
@@ -158,7 +143,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: 30;
   background: rgba(0, 0, 0, 0.7);
 }
 #jApp.night-style input{

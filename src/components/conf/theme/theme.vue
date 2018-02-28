@@ -87,19 +87,6 @@ export default {
     margin-right: 6px;
   }
 }
-.sidebar-mask {
-  /*width: 357px;*/
-  /*height: 667px;*/
-  position: fixed;
-  transform: translateZ(0);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0.7);
-}
-
 .img-box {
   position: relative;
   z-index: 0;

@@ -7,7 +7,7 @@
 			<mt-button icon="more" slot="right"></mt-button>
 		</mt-header>
     <div class="detail-main-box">
-      <div class="detail-img-box margin-top" :style="{'backgroundImage':'url(\''+headImg+'\')'}">
+      <div v-if="headImg" class="detail-img-box margin-top" :style="{'backgroundImage':'url(\''+headImg+'\')'}">
         <div class="detail-mask"></div>
         <h1 class="detail-title">{{title}}</h1>
         <p class="detail-image-source">{{imgsource}}</p>

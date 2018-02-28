@@ -15,7 +15,7 @@
         <div class="swiper-mask"></div>
 			</mt-swipe-item>
 		</mt-swipe>
-		<articleList :list="list" :dateList="dateList" :source="source" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10"></articleList>	
+		<articleList :list="list" :dateList="dateList" :source="source" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="100"></articleList>	
     <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar()"></div>
   </div>
 </template>
@@ -42,6 +42,7 @@ export default {
   components: { articleList, sidebar },
   mounted() {
     let self = this;
+    window.document.body.className = "";
     this.today = this.$options.filters["date"](this.today);
     this.$ajax.get(this.$apiUrl.indexUrl).then(res => {
       //   console.log(res.top_stories);
@@ -66,17 +67,15 @@ export default {
         //第一次不执行
         this.loading = true;
         this.lazyloadList(this.today);
-        console.log(this.today);
-        console.log("不是第一次");
       }
       this.isNotFirst = true;
     },
     lazyloadList(date) {
       let self = this;
       this.dateList.push(this.$options.filters["Cdate"](date));
-      console.log(this.dateList);
+      // console.log(this.dateList);
       this.$ajax.get(this.$apiUrl.topicList + date).then(res => {
-        console.log(res.STORIES.stories);
+        // console.log(res.STORIES.stories);
         self.list.push(res.STORIES.stories);
         self.today -= 1;
       });
@@ -131,7 +130,7 @@ export default {
   font-size: 16px;
   position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   .list-icon {
     margin-left: 10px;
   }
@@ -140,6 +139,10 @@ export default {
   }
   .head-more {
     margin-left: 20px;
+  }
+  .edit-icon {
+    font-size: 20px;
+    margin-right: 6px;
   }
 }
 .mint-swipe {
@@ -196,7 +199,7 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: 30;
   background: rgba(0, 0, 0, 0.7);
 }
 #jApp.night-style {

@@ -91,7 +91,7 @@ export default {
   }
   .sidebar-header {
     padding: 15px;
-    background: #00a2ea;
+    background: #26a2ff;
     .user {
       display: flex;
       flex-direction: row;
