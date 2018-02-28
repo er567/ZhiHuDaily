@@ -1,10 +1,10 @@
 <template>
   <div class="list-box">
 			<ul class="mod-list" v-for="(listItem,index) in list" :key="index">
-				<h2 class="title">{{dateList[index]}}</h2>
+				<h2 v-if="source=='index'" class="title">{{dateList[index]}}</h2>
   				<li class="list-item" @click="getDetails(item.id)" v-for="(item,index) in listItem" :key="index">
             <div class="item-title">{{item.title}}</div>
-            <div class="item-imgbox">
+            <div class="item-imgbox" v-if="item.images">
               <img :src="getImage(item.images[0])" alt="">
             </div>
 				  </li>
@@ -22,7 +22,7 @@ export default {
       
     };
   },
-  props:['list','dateList'],
+  props:['list','dateList','source'],
   components: {},
   mounted() {
     

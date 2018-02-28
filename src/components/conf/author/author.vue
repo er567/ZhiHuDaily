@@ -67,7 +67,7 @@ export default {
   },
   directives: {
     focus: {
-      update: function (el, {value}) {
+      inserted: function (el, {value}) {
         if (value) {
           el.focus()
         }

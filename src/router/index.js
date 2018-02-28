@@ -25,6 +25,10 @@ const router = new Router({
         path: '/author',  
         name: 'author',
         component: resolve => require(['@/components/conf/author/author.vue'], resolve)
+    },{
+        path: '/theme/:id',  
+        name: 'theme',
+        component: resolve => require(['@/components/conf/theme/theme.vue'], resolve)
     }]
 })
 

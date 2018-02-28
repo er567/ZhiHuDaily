@@ -15,7 +15,7 @@
         <div class="swiper-mask"></div>
 			</mt-swipe-item>
 		</mt-swipe>
-		<articleList :list="list" :dateList="dateList" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10"></articleList>	
+		<articleList :list="list" :dateList="dateList" :source="source" v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" infinite-scroll-distance="10"></articleList>	
     <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar()"></div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
       topStories: "",
       list: [],
       dateList: ["今日新闻"],
+      source: "index",
       isNotFirst: false,
       today: Date.now(),
       showSidebar: false,

@@ -1,32 +1,30 @@
 <template>
   <div class="sidebar-box" :class="{'show-sidebar': showSidebar}">
-      <router-link :to="{name: 'author',params: { userId: 'er567' }}">
-            <div class="sidebar-header">
-                <div class="user">
-                    <img src="../../../assets/images/conf/avatar.jpg" alt="">
-                    <p>{{author}}</p>
-                </div>
-                <div class="operation">
-                    <div class="operation-item">
-                        <i class="iconfontcom">&#xe676;</i>
-                        <p>我的收藏</p>
-                    </div>
-                    <div class="operation-item">
-                        <i class="iconfontcom">&#xe7bb;</i>
-                        <p>离线下载</p>
-                    </div>
-                </div>
-            </div>
+      <router-link :to="{name: 'author',params: { userId: 'er567' }}" tag="div" class="sidebar-header">
+        <div class="user">
+            <img src="../../../assets/images/conf/avatar.jpg" alt="">
+            <p>{{author}}</p>
+        </div>
+        <div class="operation">
+          <div class="operation-item">
+            <i class="iconfontcom">&#xe676;</i>
+            <p>我的收藏</p>
+          </div>
+          <div class="operation-item">
+            <i class="iconfontcom">&#xe7bb;</i>
+            <p>离线下载</p>
+          </div>
+        </div>
       </router-link>
       <div class="sidebar-list">
           <router-link :to="{name: 'index'}">
-                <p class="home" @click="hiddenBarChild()"><i class="iconfontcom">&#xe630;</i>首页</p>
+                <p class="home" @click="hiddenBarChild"><i class="iconfontcom">&#xe630;</i>首页</p>
           </router-link>
           <ul>
-            <li class="list-item" v-for="(item,index) in themeObj" :key="index">
+              <router-link tag="li" class="list-item" v-for="(item,index) in themeObj" :key="index" @click.native="hiddenBarChild" :to="{name: 'theme',params: { id: item.id }}">
                 <p>{{item.name}}</p>
                 <div>+</div>
-            </li>
+              </router-link>
           </ul>
       </div>
   </div>
@@ -57,7 +55,7 @@ export default {
       if (this.sidebarShow) {
         this.sidebarShow = !this.sidebarShow;
       }
-      console.log(this.sidebarShow);
+      console.log(this.sidebarShow)
       this.$emit("update:showSidebar", this.sidebarShow);
     }
   },
