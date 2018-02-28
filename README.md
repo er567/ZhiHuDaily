@@ -1,6 +1,5 @@
-webpack for single file components
+知乎日报-Vue
 ============
-Author: licuiting
 ## git address
 ``` js
 git@github.com:er567/ZhiHuDaily.git
@@ -40,7 +39,7 @@ source .bash_profile
 ```
 
 ## Reference 
-1. es6, es7, es8
+1. es6
 1. [webpack](https://webpack.js.org/)
 1. Vue.js devtools
 1. [vue](https://vuejs.org/) 
