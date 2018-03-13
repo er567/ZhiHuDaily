@@ -45,9 +45,8 @@ export default {
     window.document.body.className = "";
     this.today = this.$options.filters["date"](this.today);
     this.$ajax.get(this.$apiUrl.indexUrl).then(res => {
-      //   console.log(res.top_stories);
-      self.topStories = res.STORIES.top_stories;
-      self.list.push(res.STORIES.stories);
+      self.topStories = res.top_stories;
+      self.list.push(res.stories);
     });
   },
   methods: {
@@ -75,8 +74,8 @@ export default {
       this.dateList.push(this.$options.filters["Cdate"](date));
       // console.log(this.dateList);
       this.$ajax.get(this.$apiUrl.topicList + date).then(res => {
-        // console.log(res.STORIES.stories);
-        self.list.push(res.STORIES.stories);
+        // console.log(res.stories);
+        self.list.push(res.stories);
         self.today -= 1;
       });
     },
@@ -139,10 +138,6 @@ export default {
   }
   .head-more {
     margin-left: 20px;
-  }
-  .edit-icon {
-    font-size: 20px;
-    margin-right: 6px;
   }
 }
 .mint-swipe {

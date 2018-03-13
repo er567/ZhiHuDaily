@@ -11,7 +11,7 @@
         </div>
         <div class="author-box"></div>
 		<articleList :list="list" :source="source"></articleList>	
-        <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar()"></div>     
+    <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar()"></div>     
   </div>
 </template>
 
@@ -34,6 +34,9 @@ export default {
   },
   props: [""],
   components: { sidebar,articleList},
+  created() {
+
+  },
   mounted() {
     this.author = this.$store.state.demo.author;
     this.getTheme(`/${this.$route.params.id}`);
@@ -56,11 +59,12 @@ export default {
       }
     },
     getTheme(id) {
-      this.$ajax.get(this.$apiUrl.themesUrl + id).then(res => {
-        this.themeName = res.THEMEDES.name;
-        this.description = res.THEMEDES.description;
-        this.background = res.THEMEDES.background;
-        this.list.push(res.THEMEDES.stories);
+      this.$ajax.get(this.$apiUrl.themesDetail + id).then(res => {
+        this.themeName = res.name;
+        this.description = res.description;
+        this.background = res.background;
+        this.list=new Array();
+        this.list.push(res.stories);
       });
     }
   },
@@ -76,15 +80,14 @@ export default {
   width: 100%;
   height: 54px;
   font-size: 16px;
+  position: fixed;
+  top: 0;
+  z-index: 20;
   .list-icon {
     margin-left: 10px;
   }
   .sy-txt {
-    margin-left: 32px;
-  }
-  .edit-icon {
-    font-size: 20px;
-    margin-right: 6px;
+    margin-left: 30px;
   }
 }
 .img-box {
@@ -96,6 +99,7 @@ export default {
   background-position-x: 50%;
   background-position-y: 50%;
   background-repeat: no-repeat;
+  background-color: #666;
   .detail-title {
     position: absolute;
     bottom: 23px;
@@ -103,7 +107,7 @@ export default {
     left: 0;
     padding: 0 18px;
     font-weight: 300;
-    font-size: 21px;
+    font-size: 18px;
     color: #ffffff;
   }
   .detail-image-source {
@@ -115,5 +119,15 @@ export default {
     font-size: 12px;
     color: #d3d3d3;
   }
+}
+.sidebar-mask {
+  position: fixed;
+  transform: translateZ(0);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.7);
 }
 </style>

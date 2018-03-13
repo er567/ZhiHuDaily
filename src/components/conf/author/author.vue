@@ -28,13 +28,13 @@
 
 <script>
 import Vue from "vue";
-import { demo } from 'vuex'
+import { demo } from "vuex";
 import sidebar from "../index/sidebar.vue";
 // var bus = new Vue();
 export default {
   data() {
     return {
-      author: '',
+      author: "",
       showSidebar: false,
       edit: false,
       focusState: false
@@ -55,21 +55,22 @@ export default {
       window.document.body.className = "";
     },
     editName() {
-        this.edit = !this.edit;
-        this.focusState = !this.focusState;
-        if(this.focusState){
-            this.$refs.name.removeAttribute('readonly');
-        }else{
-            this.$refs.name.setAttribute('readonly','readonly');
-            this.$store.commit('editAuthor', this.author);
-        }
+      this.edit = !this.edit;
+      this.focusState = !this.focusState;
+      if (this.focusState) {
+        this.$refs.name.removeAttribute("readonly");
+      } else {
+        this.$refs.name.setAttribute("readonly", "readonly");
+        this.$store.commit("editAuthor", this.author);
+      }
     }
   },
   directives: {
     focus: {
-      inserted: function (el, {value}) {
+      update: function(el, { value }) {
+        //inserted是被插入时候，updata是改变的时候，触发时机不同
         if (value) {
-          el.focus()
+          el.focus();
         }
       }
     }
@@ -78,6 +79,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.ui-header {
+  width: 100%;
+  height: 54px;
+  font-size: 16px;
+  // position: fixed;
+  top: 0;
+  z-index: 20;
+  .list-icon {
+    margin-left: 10px;
+  }
+  .sy-txt {
+    margin-left: 30px;
+  }
+  .edit-icon {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+}
 .avatar {
   margin: 30px auto;
   text-align: center;
@@ -100,10 +119,10 @@ export default {
     color: #999;
     font-size: 20px;
     text-align: center;
-    &.foucs{
-        color: #000;
-        text-underline-position: under;
-        text-decoration-color: #4bb6ae;
+    &.foucs {
+      color: #000;
+      text-underline-position: under;
+      text-decoration-color: #4bb6ae;
     }
   }
 }
@@ -146,7 +165,7 @@ export default {
   z-index: 30;
   background: rgba(0, 0, 0, 0.7);
 }
-#jApp.night-style input{
-    background: #343434;
+#jApp.night-style input {
+  background: #343434;
 }
 </style>

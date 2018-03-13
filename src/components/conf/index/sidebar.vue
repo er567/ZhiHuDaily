@@ -47,7 +47,7 @@ export default {
     let self = this;
     this.author = this.$store.state.demo.author;
     this.$ajax.get(this.$apiUrl.themesUrl).then(res => {
-      self.themeObj = res.THEMES.others;
+      self.themeObj = res.others;
     });
   },
   methods: {

@@ -44,15 +44,12 @@ export default {
       self.id = window.sessionStorage.detailId;
     }
     self.url = this.$apiUrl.articleUrl + self.id;
-    console.log(self.id);
     this.$ajax.get(self.url).then(res => {
-      //处理一下里面的图片链接 res.CONTENTS.body
-      console.log(res.CONTENTS.css);
-      self.content = self.getImage(res.CONTENTS.body);
-      self.headImg = self.getImage(res.CONTENTS.image);
-      self.title = res.CONTENTS.title;
-      self.imgsource = res.CONTENTS.image_source;
-      console.log(self.headImg);
+      //处理一下里面的图片链接 res.body
+      self.content = self.getImage(res.body);
+      self.headImg = self.getImage(res.image);
+      self.title = res.title;
+      self.imgsource = res.image_source;
     });
   },
   methods: {
