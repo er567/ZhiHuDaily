@@ -2,6 +2,10 @@ import Vue from 'vue'
 import index from './index/index'
 import Router from 'vue-router'
 Vue.use(Router)
+Router.prototype.goBack = function () { 
+　　this.isBack = true
+　　window.history.go(-1)
+}
 const router = new Router({
     mode: 'history',
     routes: [index, {
