@@ -1,5 +1,6 @@
 import 'lib-flexible'
 import Vue from 'vue'
+import App from './App'
 import ajax from './assets/js/ajax'
 import store from './store'
 import apiUrl from './assets/js/api-url'
@@ -16,6 +17,8 @@ Vue.use(Mint);
 new Vue({
     el: '#jApp',
 	store,
-    router
+    router,
+    template: '<App/>',
+    components: { App }
 })
 
