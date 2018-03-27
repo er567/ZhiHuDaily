@@ -5,7 +5,7 @@
   				<li class="list-item" @click="getDetails(item.id)" v-for="(item,index) in listItem" :key="index">
             <div class="item-title">{{item.title}}</div>
             <div class="item-imgbox" v-if="item.images">
-              <img :src="getImage(item.images[0])" alt="">
+              <img v-lazy="getImage(item.images[0])" alt="">
             </div>
 				  </li>
 			</ul>
