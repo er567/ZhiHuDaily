@@ -20,11 +20,12 @@ const router = new Router({
     path: '/index',
     name: 'index',
 	component: resolve => require(['@/components/conf/index/index.vue'], resolve),
-	hidden: true
+    meta: { scrollToTop: true }
     },{
         path: '/detail',  
         name: 'detail',
-        component: resolve => require(['@/components/conf/article-detail/article-detail.vue'], resolve)
+        component: resolve => require(['@/components/conf/article-detail/article-detail.vue'], resolve),
+        meta: { scrollToTop: true }
     },{
         path: '/author',  
         name: 'author',
@@ -33,7 +34,20 @@ const router = new Router({
         path: '/theme/:id',  
         name: 'theme',
         component: resolve => require(['@/components/conf/theme/theme.vue'], resolve)
-    }]
+    }],
+    scrollBehavior: function(to, from, savedPosition){
+        const position = {}
+        if (to.hash) {
+        position.selector = to.hash
+        }
+        if (to.matched.some(m => m.meta.scrollToTop)) {
+            position.x = 0
+            position.y = 0
+            return position
+        }else{//savedPosition只有当浏览器触发返回时才有效
+            return savedPosition
+        }
+    }
 })
 
 export

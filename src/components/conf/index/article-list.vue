@@ -14,7 +14,8 @@
 
 <script>
 import Vue from "vue";
-// import formatDate from './assets/js/data.js'
+import Lazyload from 'mint-ui';
+Vue.use(Lazyload);
 // var bus = new Vue();
 export default {
   data() {
@@ -63,9 +64,12 @@ export default {
 			flex: 1; 
 		}
 		.item-imgbox{
+			width: 90px;
+			height: 80px;
+			background-color: #ddd;
 			img{
-				width: 90px;
-				height: 80px;
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}

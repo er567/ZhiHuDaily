@@ -119,7 +119,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .mod-index {
   padding-top: 50px;
 }
@@ -129,7 +129,7 @@ export default {
   font-size: 16px;
   position: fixed;
   top: 0;
-  z-index: 20;
+  z-index: 30;
   .list-icon {
     margin-left: 10px;
   }
