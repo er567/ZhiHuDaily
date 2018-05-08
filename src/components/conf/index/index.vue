@@ -118,7 +118,31 @@ export default {
   }
 };
 </script>
-
+<style lang="scss">
+#jApp.night-style {
+  background: #343434;
+  .ui-header {
+    background: #222222;
+  }
+  .mod-list {
+    background: #343434;
+    .title {
+      color: #b7b7b7;
+    }
+    .list-item {
+      background: #404040;
+      border: 1px solid #343434;
+      border-bottom: 1px solid #222222;
+      .item-title {
+        color: #d2d2d2;
+      }
+    }
+  }
+}
+.scroll-stop {
+  overflow: hidden;
+}
+</style>
 <style lang="scss" scoped>
 .mod-index {
   padding-top: 50px;
@@ -196,28 +220,5 @@ export default {
   left: 0;
   z-index: 30;
   background: rgba(0, 0, 0, 0.7);
-}
-#jApp.night-style {
-  background: #343434;
-  .ui-header {
-    background: #222222;
-  }
-  .mod-list {
-    background: #343434;
-    .title {
-      color: #b7b7b7;
-    }
-    .list-item {
-      background: #404040;
-      border: 1px solid #343434;
-      border-bottom: 1px solid #222222;
-      .item-title {
-        color: #d2d2d2;
-      }
-    }
-  }
-}
-.scroll-stop {
-  overflow: hidden;
 }
 </style>
